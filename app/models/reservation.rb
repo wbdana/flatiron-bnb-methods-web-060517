@@ -47,61 +47,9 @@ class Reservation < ActiveRecord::Base
   def misc_check_two
     if self.checkin && self.checkout
       !self.checkin == self.checkout
+    else
+      errors.add(:misc_check_two, "Same day in, same day out? We don't do that here.")
     end
   end
-
-
-  # def available_at_checkin
-  #   checkins = self.listing.reservations.map{|res| res.checkin}
-  #   map = checkins.map{|ch| ch <= checkin ? 1 : 0 }
-  #   if map.include?(1)
-  #     errors.add(:checkin, "Unavailable at checkin")
-  #   end
-  # end
-
-
-    # checkins.inject(self.checkin){|}
-
-  #   ins = self.listing.reservations.map{|res| res.checkin}.first
-  #   # binding.pry
-  #   if ins <= self.checkin
-  #     errors.add(:checkin, "Unavailable at checkin")
-  #   end
-  #   # binding.pry
-  # end
-
-  # def available
-  #   unless available_at_checkin && available_at_checkout
-  #     errors.add(:listing_id, "Invalid checkin or checkout")
-  #   end
-  # end
-  #
-  # def available_at_checkin
-  #   # binding.pry
-  #   if !self.listing.reservations.map{|res| res.checkin}.include?(self.checkin)
-  #     errors.add(:listing_id, "Invalid checkin")
-  #   end
-  # end
-  #
-  # def available_at_checkout
-  #   if !self.listing.reservaitons.map{|res| res.checkout}.include?(self.checkout)
-  #     errors.add(:listing_id, "Invalid checkout")
-  #   end
-  # end
-
-  #
-  #
-  # def available_at_checkin
-  #   # binding.pry
-  #   if self.listing.reservations.map{|res| res.checkin}.include?(self.checkin)
-  #     errors.add(:listing_id, "Not available at checkin")
-  #   end
-  # end
-  #
-  # def available_at_checkout
-  #   if self.listing.reservations.map{|res| res.checkout}.include?(self.checkout)
-  #     errors.add(:listing_id, "Not available at checkout")
-  #   end
-  # end
 
 end

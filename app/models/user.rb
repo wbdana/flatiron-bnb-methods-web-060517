@@ -43,21 +43,4 @@ class User < ActiveRecord::Base
     end.flatten!
   end
 
-
-
-  #     .map do |res_id|
-  #       Reservation.find_by_id(res_id)
-  #     end
-  #   end.flatten.map do |reservation|
-  #     reservation.listing_id map do |list_id|
-  #       Listing.find_by_id(list_id)
-  #     end
-  #   end.flatten map do |listing|
-  #     listing.host_id.map do |host_id|
-  #       User.find_by_id(host_id)
-  #     end
-  #   end.flatten
-  # end
-
-
 end
